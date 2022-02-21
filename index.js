@@ -1,66 +1,71 @@
-// GIVEN a command-line application that accepts user input
-// WHEN I am prompted for information about my application repository
-// THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
-// WHEN I enter my project title
-// THEN this is displayed as the title of the README
-// WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
-// THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
-// WHEN I choose a license for my application from a list of options
-// THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
-// WHEN I enter my GitHub username
-// THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
-// WHEN I enter my email address
-// THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-// WHEN I click on the links in the Table of Contents
-// THEN I am taken to the corresponding section of the README
-
 "use strict";
 const inquirer = require("inquirer");
 const fs = require("fs");
 
+const parser = require("./parsemd")
+
+//Questions that will be asked to the user in the terminal
 const questions = [
   {
     type: "input",
-    name: "name",
-    message: "What is the name of your application?",
+    name: "github",
+    message: "What is your Github username?",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "What is your email address?",
+  },
+  {
+    type: "input",
+    name: "title",
+    message: "What is your project title?",
+  },
+  {
+    type: "list",
+    name: "license",
+    message: "What license are you using?",
+    //Drop down menu of choices
+    choices: [ "apache", "boost", "bsd2-clause", "bsd3-clause", "creative commons", "eclipse", "gnu", "mit", "mozilla"],
   },
   {
     type: "input",
     name: "description",
-    message: "Write a brief description of your application.",
+    message: "Write a brief description of your project.",
   },
   {
     type: "input",
-    name: "uses",
-    message: "What are the uses for your application?",
+    name: "usage",
+    message: "Write the uses for your application.",
   },
   {
     type: "input",
     name: "installation",
     message: "What are the steps for installing your application?",
   },
-
   {
     type: "input",
-    name: "issues",
-    message: "How can you report issues for your application?",
-  },
-  {
-    type: "input",
-    name: "contributions",
+    name: "contributing",
     message: "How can others contribute to your application?",
   },
   {
+  type: "input",
+  name: "tests",
+  message: "How can others test your application?",
+},
+  {
     type: "input",
-    name: "resources",
-    message: "Do you need to cite any resources?",
+    name: "sources",
+    message: "Do you need to cite any sources?",
   },
 ];
 
+// Connects parsemd.js to index.js
 inquirer.prompt(questions).then((answers) => {
-  let data = JSON.stringify(answers, null, "  ");
+  let data = parser(answers)
 
-  fs.appendFile("log.txt", data, (err) =>
+  // Appends data to log.md file/creates file if one is not already created
+  fs.appendFile("log.md", data, (err) =>
     // if error, console log error, else console log commit logged
     err ? console.error(err) : console.log("Commit logged!")
   );
