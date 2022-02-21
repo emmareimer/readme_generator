@@ -1,0 +1,26 @@
+{
+  "name": "index.js",
+  "version": "1.0.0",
+  "description": "Readme Generator will help users create a readme file",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmareimer/readme_generator.git"
+  },
+  "keywords": [
+    "readme",
+    "generator"
+  ],
+  "author": "Emma Reimer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emmareimer/readme_generator/issues"
+  },
+  "homepage": "https://github.com/emmareimer/readme_generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
