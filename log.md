@@ -1,9 +1,9 @@
 
 
-# Weather Dashboard [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# title [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   
 ## Description
-The weather dashboard can be used to see the weather in any city.
+desc
   
 ## Table of Contents
 - [Installation](#installation)
@@ -14,29 +14,29 @@ The weather dashboard can be used to see the weather in any city.
 - [Sources](#sources)
 
 ## Installation
-Clone github repo
+steps
   
 ## Usage
-You can search by city to see the current weather as well as 5 day forecast for that city. Then the search history gets saved as buttons and users can use those buttons to quickly switch cities.
+uses
 
 ## License
 The MIT License
     
 ## Contributing
-Others can contribute by...
+n/a
 
 ## Tests
-Others can test by...
+test
 
 ## Questions?
 
 Contact Info:
 
-Github profile: emmareimer
+Github profile: username
 
-Email: emmareimerworks@gmail.com
+Email: email
 
 ## Sources
-OpenWeatherAPI
+resources
   
     
